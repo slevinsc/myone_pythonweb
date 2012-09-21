@@ -1,0 +1,22 @@
+<html>
+<head><title>
+</title></head>
+
+<body>
+
+
+
+<h1>修改密码</h1>
+{% if not list %} 
+ <form action="/thanks/" method="POST">
+    {{ form.as_p }}
+    <p><input type="submit" value="提交" /></p>
+  </form>
+{% else %}
+{% for i in list %}
+<p>{{ i }}</p>
+{% endfor %}
+{% endif %}
+
+</body>
+</html>

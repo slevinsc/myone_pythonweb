@@ -1,0 +1,34 @@
+<html>
+<head><title>
+{% if not username %}
+登录
+{% else %}
+{{ username }}
+{% endif %} 
+</title></head>
+
+<body>
+
+<h1>登录</h1>
+<ul>{{userid}}</ul>
+{% if not username %} 
+<form id="form1" name="test" method="post" action="/action1/">
+  <ul>
+用户名<input type="text" name="username" />
+  <br>
+密码&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" />
+  <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="Submit" value="提交" />
+  </ul>
+</form>
+{% else %} 
+你已经登录了！{{ username }}<br/>
+<form method="post" action="/logout/">
+    <input type="submit" value="注销">
+</form>
+{% endif %} 
+
+
+
+</body>
+</html>

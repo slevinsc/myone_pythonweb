@@ -1,0 +1,22 @@
+<html>
+<head><title>哥测试啊</title></head>
+
+<body>
+
+<h1>哥测试啊</h1>
+<form id="form1" name="test" method="post" action="/select/">
+  <ul>
+  <select name="select">
+  {% for item in item_list %}
+       <option>{{item}}</option>
+  {% endfor %}
+  </select>
+  <input type="submit" name="Submit" value="提交" />
+  </ul>
+</form>
+
+
+
+
+</body>
+</html>
