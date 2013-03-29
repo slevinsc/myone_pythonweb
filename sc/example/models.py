@@ -2,9 +2,9 @@ from django.db import models
 import MySQLdb
 import MySQLdb.cursors
 def db(user,pass1):
-     host = "218.204.254.118"
+     host = "192.168.0.25"
      user = "sc"
-     passwd = "songchun"
+     passwd = "000000"
      db = "test"
      conn = MySQLdb.connect (host,user,passwd ,db,cursorclass = MySQLdb.cursors.DictCursor)
      two=conn.cursor () 
