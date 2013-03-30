@@ -14,6 +14,8 @@ def db(user,pass1):
      row=two.fetchall()
      result=row[0]
      return result
+
+
 class Publisher(models.Model):
     name = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
@@ -25,4 +27,6 @@ class Publisher(models.Model):
 class Product_name(models.Model):
     name = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
+
+
 #print db("sc","000000")

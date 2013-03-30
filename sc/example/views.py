@@ -1,13 +1,18 @@
 # coding=utf-8
+import models,sys
+sys.path.append('E:\\223\\sc\\sc')
 from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.contrib.sessions.models import Session
-import models
-from example.lib.form import ContactForm
+
+from form import ContactForm
+
+#from example.form import ContactForm
 from django.http import HttpResponseRedirect  
 #import Session
+
 now=['红段子','动感社区','老乡网','关爱100']
 login="登录"
 def current_datetime(request):    
@@ -28,7 +33,7 @@ def jiujie(request):
         #if not request.POST.get('select', ''):
             #print "测试 POST"
         #else:
-    return render_to_response("login.html") 
+    return render_to_response("test5.html") 
     #if 'select' in request.POST:
          #return HttpResponse(request.POST['select'])
 
@@ -107,7 +112,7 @@ def test(request):
        request.session['test']='im test'
        return HttpResponse('fail')
    
-def thanks(request):
+def thanks_bak(request):
     if request.method == 'POST': # If the form has been submitted...
         form = ContactForm(request.POST) # A form bound to the POST
         if form.is_valid():
@@ -137,4 +142,24 @@ def thanks(request):
             #form = ContactForm({'base':'leve1','product':'leve1','ipaddr':'34.34.34.3','oldpass':'dffd','newpass':'fds','secondpass':'fdsfs'}) # An unbound form
             form = ContactForm({'base':'leve1','product':'leve1'})
             return render_to_response('exanoke.html', {'form': form,})
+        
+def thanks(request):
+    if request.method == 'POST': # If the form has been submitted...
+        form = ContactForm(request.POST) # A form bound to the POST
+        if form.is_valid():               
+                ipaddr=request.POST.get('ipaddr',None)
+                oldpass=request.POST.get('oldpass',None)
+                newpass=request.POST.get('newpass',None)
+                secondpass=request.POST.get('secondpass',None)
+                if newpass==secondpass:
+                    list=(ipaddr,oldpass,newpass,secondpass)
+                    return render_to_response('exanoke.html', {'list': list})
+                    
+                #return HttpResponse('fail')
+        else:
+           return HttpResponse('fail') 
+    else:
+            #form = ContactForm({'base':'leve1','product':'leve1','ipaddr':'34.34.34.3','oldpass':'dffd','newpass':'fds','secondpass':'fdsfs'}) # An unbound form
+        form = ContactForm({'base':'leve1','product':'leve1'})
+        return render_to_response('exanoke.html', {'form': form,})
  

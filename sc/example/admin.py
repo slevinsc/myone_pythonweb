@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from django.contrib import admin
-from example.models import Publisher,Product_name
+from models import Publisher,Product_name
 
 class MyModelAdmin( admin.ModelAdmin ):
     pass
