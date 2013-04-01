@@ -13,7 +13,7 @@ from form import ContactForm
 from django.http import HttpResponseRedirect  
 #import Session
 
-now=['红段子','动感社区','老乡网','关爱100']
+now=['项目1','项目2','项目3','项目4']
 login="登录"
 def current_datetime(request):    
     #t = get_template('static.html')
